@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DitherEffectRendererFeature
   m_EditorClassIdentifier: Assembly-CSharp::DitherEffectRendererFeature
   m_Active: 1
-  injectionPoint: 600
+  injectionPoint: 550
   material: {fileID: -876546973899608171, guid: 57d9a28f5b2dd4d228951fcf3506180d, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:

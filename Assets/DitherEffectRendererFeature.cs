@@ -82,7 +82,7 @@ public class DitherEffectRendererFeature : ScriptableRendererFeature
             // It needs to read the current color texture of the scene so far
             // Ideally we want to apply the effect to the final output - we can't directly use the output (back buffer) as an input
             // Instead we'll need to work with an intermediate texture
-            requiresIntermediateTexture = true;
+            requiresIntermediateTexture = false;
         }
         
         
