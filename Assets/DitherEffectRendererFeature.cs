@@ -123,8 +123,13 @@ public class DitherEffectRendererFeature : ScriptableRendererFeature
             TextureHandle destination = renderGraph.CreateTexture(destinationDesc); // Creating the destination handle
 
             RenderGraphUtils.BlitMaterialParameters para = new(source, destination, m_BlitMaterial, 0);
+
+            using (var builder = renderGraph.AddBlitPass(para, m_PassName, returnBuilder: true))
+            {
+                builder.UseTexture(resourceData.cameraDepthTexture, AccessFlags.Read);
+            }
             
-            renderGraph.AddBlitPass(para, passName: m_PassName); // Execute the blit using the material
+            // renderGraph.AddBlitPass(para, passName: m_PassName); // Execute the blit using the material
             
             // Dither effect blits the full screen draw to color buffer to a temporary texture
             // This swaps the camera color buffer with our modified texture
