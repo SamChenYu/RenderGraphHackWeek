@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DitherEffectRendererFeature
   m_Active: 1
   injectionPoint: 550
-  material: {fileID: -876546973899608171, guid: 57d9a28f5b2dd4d228951fcf3506180d, type: 3}
+  material: {fileID: -876546973899608171, guid: 96c31fb153c4546b6a902db1521317a9, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
