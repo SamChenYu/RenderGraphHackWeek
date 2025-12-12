@@ -7,10 +7,10 @@ using UnityEngine.Rendering.RenderGraphModule.Util;
 
 // Manages the life cycle and configuration of the passes
 // Manager class
-public class DitherEffectRendererFeature : ScriptableRendererFeature
+public class WaterSonarRendererFeature : ScriptableRendererFeature
 {
-    [SerializeField] DitherEffectRendererFeatureSettings settings;
-    DitherEffectRendererFeaturePass m_ScriptablePass;
+    [SerializeField] WaterSonarRendererFeatureSettings settings;
+    WaterSonarRendererFeaturePass m_ScriptablePass;
     
     public RenderPassEvent injectionPoint = RenderPassEvent.AfterRenderingPostProcessing;
     public Material material;
@@ -19,7 +19,7 @@ public class DitherEffectRendererFeature : ScriptableRendererFeature
     public override void Create()
     {
         // Creates an instance of the pass and injection point
-        m_ScriptablePass = new DitherEffectRendererFeaturePass(settings);
+        m_ScriptablePass = new WaterSonarRendererFeaturePass(settings);
         m_ScriptablePass.renderPassEvent = injectionPoint;
     }
 
@@ -28,7 +28,7 @@ public class DitherEffectRendererFeature : ScriptableRendererFeature
     {
         if (material == null)
         {
-            Debug.LogWarning("DitherEffectRendererFeature material is null and will be skipped.");
+            Debug.LogWarning("WaterSonarRendererFeature material is null and will be skipped.");
             return;
         }
         
@@ -38,7 +38,7 @@ public class DitherEffectRendererFeature : ScriptableRendererFeature
     }
 
     [Serializable]
-    public class DitherEffectRendererFeatureSettings
+    public class WaterSonarRendererFeatureSettings
     {
         
     }
@@ -54,14 +54,14 @@ public class DitherEffectRendererFeature : ScriptableRendererFeature
     
     // Defines the rendering logic what the render pass does - drawing / rendering actions
     // Worker class
-    class DitherEffectRendererFeaturePass : ScriptableRenderPass
+    class WaterSonarRendererFeaturePass : ScriptableRenderPass
     {
-        private const string m_PassName = "DitherEffectPass"; // Useful for debugging
+        private const string m_PassName = "WaterSonarPass"; // Useful for debugging
         private Material m_BlitMaterial; // Contains the shader you apply to the current state of the rendered image
         
-        readonly DitherEffectRendererFeatureSettings settings;
+        readonly WaterSonarRendererFeatureSettings settings;
         
-        public DitherEffectRendererFeaturePass(DitherEffectRendererFeatureSettings settings)
+        public WaterSonarRendererFeaturePass(WaterSonarRendererFeatureSettings settings)
         {   
             this.settings = settings;
         }
@@ -109,7 +109,7 @@ public class DitherEffectRendererFeature : ScriptableRendererFeature
             if (resourceData.isActiveTargetBackBuffer)
             {   
                 // Ensure that resource data target backbuffer is false - otherwise we can't use the intermediate texture and log error
-                Debug.LogError($"Skipping render pass. ditherEffectRendererFeature requires an intermediate ColorTexture, we can't use the BackBuffer as a texture input. ");
+                Debug.LogError($"Skipping render pass. WaterSonarRendererFeature requires an intermediate ColorTexture, we can't use the BackBuffer as a texture input. ");
                 return;
             }
             

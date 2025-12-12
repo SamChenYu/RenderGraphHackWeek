@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f447c5e2a0f14120874940ff1318f4d, type: 3}
-  m_Name: DitherEffectRendererFeature
+  m_Name: WaterSonarRendererFeature
   m_EditorClassIdentifier: Assembly-CSharp::DitherEffectRendererFeature
   m_Active: 1
   injectionPoint: 550
